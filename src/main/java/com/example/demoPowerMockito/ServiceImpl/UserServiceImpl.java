@@ -11,13 +11,13 @@ public class UserServiceImpl implements User {
         System.out.println("Spy Instantiate real object, constructor called");
     }
 
-    private int getAge() {
-        return 20;
+    private int getSome(int a, int b) {
+        return a+b;
     }
 
     @Override
     public int getSecret() {
-        return getAge();
+        return getSome(1, 2);
     }
 
     public static String getClassCode() {

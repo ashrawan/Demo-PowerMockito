@@ -1,6 +1,7 @@
 package com.example.demoPowerMockito.Service;
 
 import com.example.demoPowerMockito.ServiceImpl.UserServiceImpl;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,6 +10,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.powermock.api.mockito.PowerMockito.*;
 
 @RunWith(PowerMockRunner.class)
@@ -24,8 +26,8 @@ public class UserServiceTest {
     public void testPrivateMethod() throws Exception{
 
         UserServiceImpl userServiceImplSpy = PowerMockito.spy(new UserServiceImpl());
-        when(userServiceImplSpy, "getAge").thenReturn(20);
-        assertEquals(20, userServiceImplSpy.getSecret());
+        when(userServiceImplSpy, "getSome", anyInt(), anyInt()). thenReturn(30);
+        assertEquals(30, userServiceImplSpy.getSecret());
     }
 
     @Test
