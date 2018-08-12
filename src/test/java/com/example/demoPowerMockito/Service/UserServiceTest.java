@@ -1,7 +1,6 @@
 package com.example.demoPowerMockito.Service;
 
 import com.example.demoPowerMockito.ServiceImpl.UserServiceImpl;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +27,14 @@ public class UserServiceTest {
         UserServiceImpl userServiceImplSpy = PowerMockito.spy(new UserServiceImpl());
         when(userServiceImplSpy, "getSome", anyInt(), anyInt()). thenReturn(30);
         assertEquals(30, userServiceImplSpy.getSecret());
+    }
+
+    @Test
+    public void testPublicMethod() throws Exception{
+
+        UserServiceImpl userServiceImplMock = mock(UserServiceImpl.class);
+        when(userServiceImplMock.getPublicValue()).thenReturn("Hello");
+        assertEquals("Hello", userServiceImplMock.getPublicValue());
     }
 
     @Test

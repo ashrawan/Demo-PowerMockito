@@ -11,6 +11,10 @@ public class UserServiceImpl implements User {
         System.out.println("Spy Instantiate real object, constructor called");
     }
 
+    public String getPublicValue() {
+        return "Hello";
+    }
+
     private int getSome(int a, int b) {
         return a+b;
     }
